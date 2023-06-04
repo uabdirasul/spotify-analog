@@ -10,7 +10,7 @@ function chillHop() {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=58833",
       id: uuidv4(),
       color: ["#66790e", "#fef1e7"],
-      active: false,
+      active: true,
     },
     {
       name: "It’s Okay",
