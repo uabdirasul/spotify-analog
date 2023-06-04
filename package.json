@@ -18,6 +18,10 @@
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.13.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
