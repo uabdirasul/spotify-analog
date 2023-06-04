@@ -17,6 +17,7 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
+      {console.log(setSongs, setCurrentSong)}
     </div>
   );
 }
