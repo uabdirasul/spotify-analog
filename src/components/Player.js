@@ -49,7 +49,9 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           type="range"
           name="song-range"
           id="song-range"
-          value={(songInfo.currentTime / songInfo.duration) * 100}
+          min="0"
+          max={songInfo.duration}
+          value={songInfo.currentTime}
         />
         <p>{convertSecond(songInfo.duration)}</p>
       </div>
