@@ -45,7 +45,12 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     <div className="player">
       <div className="time-control">
         <p>{convertSecond(songInfo.currentTime)}</p>
-        <input type="range" name="song-range" id="song-range" />
+        <input
+          type="range"
+          name="song-range"
+          id="song-range"
+          value={(songInfo.currentTime / songInfo.duration) * 100}
+        />
         <p>{convertSecond(songInfo.duration)}</p>
       </div>
       <div className="player-control">
