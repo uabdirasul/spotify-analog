@@ -1,6 +1,6 @@
 {
   "name": "spotify-analog",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

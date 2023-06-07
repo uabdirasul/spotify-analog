@@ -18,9 +18,6 @@ function App() {
 
   const audioRef = useRef(null);
 
-  console.log(setSongs, setCurrentSong);
-  console.clear();
-
   function timeUpdateHandler(e) {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
@@ -44,6 +41,9 @@ function App() {
         setSongInfo={setSongInfo}
         songInfo={songInfo}
         timeUpdateHandler={timeUpdateHandler}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+        setSongs={setSongs}
       />
       <Library
         songs={songs}
