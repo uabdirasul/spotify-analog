@@ -1,6 +1,14 @@
 import React from "react";
 
-const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying }) => {
+const LibrarySong = ({
+  song,
+  setCurrentSong,
+  audioRef,
+  isPlaying,
+  songs,
+  id,
+  setSongs,
+}) => {
   function selectSongHandler() {
     setCurrentSong(song);
     if (isPlaying) {
@@ -11,6 +19,21 @@ const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying }) => {
         });
       }
     }
+
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSongs);
   }
 
   return (

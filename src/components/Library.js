@@ -7,6 +7,7 @@ const Library = ({
   audioRef,
   isPlaying,
   setIsPlaying,
+  setSongs,
 }) => {
   return (
     <div className="library">
@@ -20,6 +21,9 @@ const Library = ({
               key={song.id}
               audioRef={audioRef}
               isPlaying={isPlaying}
+              songs={songs}
+              id={song.id}
+              setSongs={setSongs}
             />
           );
         })}
