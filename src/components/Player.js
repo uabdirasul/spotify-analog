@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -7,9 +7,15 @@ import {
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  const audioRef = useRef(null);
-
+const Player = ({
+  currentSong,
+  isPlaying,
+  setIsPlaying,
+  audioRef,
+  setSongInfo,
+  songInfo,
+  timeUpdateHandler,
+}) => {
   function playSongHandler() {
     if (isPlaying) {
       audioRef.current.pause();
@@ -19,22 +25,6 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       setIsPlaying(!isPlaying);
     }
   }
-
-  function timeUpdateHandler(e) {
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-
-    setSongInfo({
-      ...songInfo,
-      currentTime,
-      duration,
-    });
-  }
-
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
 
   function convertSecond(second) {
     return (
