@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { playSong } from "../util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -53,10 +54,12 @@ const Player = ({
     if (direction === "skip-back") {
       if (currentIndex - 1 === -1) {
         setCurrentSong(songs[songs.length - 1]);
+        playSong(isPlaying, audioRef);
         return;
       }
       setCurrentSong(songs[currentIndex - 1]);
     }
+    playSong(isPlaying, audioRef);
   }
 
   useEffect(() => {
@@ -74,7 +77,7 @@ const Player = ({
       }
     });
     setSongs(newSongs);
-  }, [currentSong]);
+  }, [currentSong, songs, setSongs]);
 
   return (
     <div className="player">
@@ -89,7 +92,7 @@ const Player = ({
           value={songInfo.currentTime}
           onChange={dragHandler}
         />
-        <p>{convertSecond(songInfo.duration)}</p>
+        <p>{songInfo.duration ? convertSecond(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="player-control">
         <FontAwesomeIcon
